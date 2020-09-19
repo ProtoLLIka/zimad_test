@@ -1,0 +1,35 @@
+### 
+POST http://localhost:3000/signin/
+Content-Type: application/json
+
+{
+    "id":"78a901a1988876",
+    "password":"1a111111"
+}
+
+###
+###
+POST http://localhost:3000/signin/new_token/
+Content-Type: application/json
+
+{
+    "refreshToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIzLCJpYXQiOjE2MDA1MjE2OTcsImV4cCI6MTYwMDUyMjI5N30.XPFhXOjwB-euEA2tevWLc8JLrZK19QiohF7hkl_hcfs"
+}
+###
+### 
+POST http://localhost:3000/signup/
+Content-Type: application/json
+
+{
+    "id":"78a901a1988876",
+    "password":"1a111111"
+}
+
+###
+###
+GET http://localhost:3000/info
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTYwMDUyMDMwOSwiZXhwIjoxNjAwNTIwOTA5fQ.I8ZE2BUnBM23bZbkB2wvvUbq65GZewFXdNZfBwPcHZw
+
+###
+###
+GET http://localhost:3000/logout
