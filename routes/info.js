@@ -14,8 +14,9 @@ function bearerTokenCheck(req, res, next) {
   const token = header && header.split(' ')[1]
   if (token == null) return res.sendStatus(401)
 
-  jwt.verify(token, process.env.ACCESS_TOKEN, (err, user) => {
+  jwt.verify(token, process.env.ACCESS_TOKEN, async (err, user) => {
     if (err) return res.sendStatus(403)
+    if (user.session != await db.getUserSessionById(user.userId)) return res.sendStatus(401)
     req.user = user
     next()
   })

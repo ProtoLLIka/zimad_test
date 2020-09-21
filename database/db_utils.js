@@ -1,4 +1,5 @@
 var mysql = require('mysql');
+var uuid = require('uuid');
 const connection = mysql.createConnection(require('./dbconfig.json'));
 connection.connect();
 
@@ -15,17 +16,16 @@ exports.getUserId = function (username, password) {
     });
     return response
 }
-
 exports.insertNewUser = function (username, password) {
+    let session = uuid.v4()
     let response = new Promise(async (resolve, reject) => {
-        connection.query(`INSERT INTO user (username, password) VALUES ('${username}', '${password}')`, function (err, rows) {
+        connection.query(`INSERT INTO user (username, password, session) VALUES ('${username}', '${password}', '${session}')`, function (err, rows) {
             if (err) throw err;
         });
         resolve(await exports.getUserId(username, password))
     });
     return response
 }
-
 exports.getUsernameById = function (id) {
     let username = ''
     let response = new Promise((resolve, reject) => {
@@ -39,7 +39,19 @@ exports.getUsernameById = function (id) {
     });
     return response
 }
-
+exports.getUserSessionById = function (id) {
+    let session = ''
+    let response = new Promise((resolve, reject) => {
+        connection.query(`SELECT user.session FROM user WHERE user.id=${id}`, function (err, rows) {
+            if (err) throw err;
+            if (rows.length > 0) {
+                session = rows[0].session
+            }
+            resolve(session)
+        });
+    });
+    return response
+}
 exports.getFileId = function (file) {
     let response = new Promise((resolve, reject) => {
         let fileId = ''
@@ -53,7 +65,6 @@ exports.getFileId = function (file) {
     });
     return response
 }
-
 exports.insertNewFile = function (file) {
     let response = new Promise(async (resolve, reject) => {
         connection.query(`INSERT INTO files (name,extension, MIMEtype, size, downloadDate) 
@@ -113,6 +124,24 @@ exports.getFiles = function (page, listSize) {
             if (err) throw err;
             resolve(rows)
         });
+    });
+    return response
+}
+exports.setNewSession = function (id) {
+    let session = uuid.v4()
+    let response = new Promise((resolve, reject) => {
+        connection.query(`UPDATE user 
+        SET 
+        user.session = '${session}'
+        WHERE user.id=${id}`,
+            function (err, rows) {
+                if (err) throw err;
+                let user = ''
+                if (rows.length > 0) {
+                    user = rows[0]
+                }
+                resolve(user)
+            });
     });
     return response
 }

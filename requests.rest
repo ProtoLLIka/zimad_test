@@ -3,8 +3,8 @@ POST http://localhost:3000/signin/
 Content-Type: application/json
 
 {
-    "id":"909",
-    "password":"11"
+    "id":"user3",
+    "password":"3"
 }
 
 ###
@@ -13,7 +13,7 @@ POST http://localhost:3000/signin/new_token/
 Content-Type: application/json
 
 {
-    "refreshToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIzLCJpYXQiOjE2MDA1MjE2OTcsImV4cCI6MTYwMDUyMjI5N30.XPFhXOjwB-euEA2tevWLc8JLrZK19QiohF7hkl_hcfs"
+    "refreshToken":""
 }
 ###
 ### 
@@ -21,14 +21,21 @@ POST http://localhost:3000/signup/
 Content-Type: application/json
 
 {
-    "id":"909",
-    "password":"11"
+    "id":"user3",
+    "password":"3"
 }
 
 ###
 ###
 GET http://localhost:3000/info
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI0LCJpYXQiOjE2MDA1OTExMzksImV4cCI6MTYwMDU5MTczOX0.NgyFEDVmqJHlOEBoOAH0dzstnfH3WmKHi89xL3GSlHg
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMxLCJzZXNzaW9uIjoiYTY2NWFkMjEtYWNlMy00MjVkLTgxNzctZGUzYjU2NDA1YjE1IiwiaWF0IjoxNjAwNjg1NjcwLCJleHAiOjE2MDA2ODYyNzB9.5mXOTAP-p1kB0OD8DPLQh8DbeAYBUNeYLwB-iK1qiQs
 ###
 ###
-GET http://localhost:3000/logout
+GET http://localhost:3000/latency
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMxLCJzZXNzaW9uIjoiZmY1ZDg5NDctYzRiMi00NjZmLWI1MWQtMmE1ODY5NzMyMjRmIiwiaWF0IjoxNjAwNjg1ODAxLCJleHAiOjE2MDA2ODY0MDF9.-D-XQxwoQFm59J7Vxh-qY-pq-snhXutab-b72ZbkkQk
+###
+
+###
+GET http://localhost:3000/logout/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMxLCJzZXNzaW9uIjoiYTY2NWFkMjEtYWNlMy00MjVkLTgxNzctZGUzYjU2NDA1YjE1IiwiaWF0IjoxNjAwNjg1NjcwLCJleHAiOjE2MDA2ODYyNzB9.5mXOTAP-p1kB0OD8DPLQh8DbeAYBUNeYLwB-iK1qiQs
+###
