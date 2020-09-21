@@ -3,8 +3,8 @@ POST http://localhost:3000/signin/
 Content-Type: application/json
 
 {
-    "id":"78a901a1988876",
-    "password":"1a111111"
+    "id":"909",
+    "password":"11"
 }
 
 ###
@@ -21,15 +21,14 @@ POST http://localhost:3000/signup/
 Content-Type: application/json
 
 {
-    "id":"78a901a1988876",
-    "password":"1a111111"
+    "id":"909",
+    "password":"11"
 }
 
 ###
 ###
 GET http://localhost:3000/info
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTYwMDUyMDMwOSwiZXhwIjoxNjAwNTIwOTA5fQ.I8ZE2BUnBM23bZbkB2wvvUbq65GZewFXdNZfBwPcHZw
-
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI0LCJpYXQiOjE2MDA1OTExMzksImV4cCI6MTYwMDU5MTczOX0.NgyFEDVmqJHlOEBoOAH0dzstnfH3WmKHi89xL3GSlHg
 ###
 ###
 GET http://localhost:3000/logout
