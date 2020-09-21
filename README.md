@@ -89,6 +89,7 @@ Authorization: Bearer <bearer token here>
 	* logout.js - все роуты /logout
 	* signin.js - все роуты /signin
 	* signup.js - все роуты /signup
+* /storage - библиотека локальных файлов
 * .env - содержат ключи для создания access и refresh токенов  
 * app.js - основное приложение 
 * requests.rest - содержит в себе часть запросов для тестирования 
